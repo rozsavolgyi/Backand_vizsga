@@ -1,23 +1,23 @@
 const mongoose = require("mongoose");
 const ToSchema = new mongoose.Schema({
-  Nev: {
+  name: {
     type: String,
     required: [true, "Please add a name"],
     unique: true,
     trim: true,
     maxlength: [50, "Name can not be more than 50 characters!"],
   },
-  Kep: {
+  img: {
     type: String,
     default: "no-photo.jpg",
   },
-  Elhelyezkedes: {
+  location: {
     type: String
   },
-  leiras: {
+  typical_fish: {
     type: String
   },
-  jellemzo_halfajok: {
+  water_depth: {
     type: [String],
     required: true,
     enum: [
@@ -26,18 +26,23 @@ const ToSchema = new mongoose.Schema({
       'csuka',
       'keszeg',
       'süllő',
-      'amur'
+      'amur',
+      'compó',
+      'afrikai harcsa',
+      'busa',
+      'jász',
+      'paduc'
     ]
   },
-  vizmelyeg: {
+  water_depth: {
     type: Number
   },
-  stegek_szama: {
+  steg_number: {
     type: Number
   },
-  napijegyek: {
+  day_ticket: {
     type: [String],
-    tipus: {
+    type: {
       type: String,
       enum: [
         "felnőtt",
@@ -47,7 +52,7 @@ const ToSchema = new mongoose.Schema({
         "családi"
       ]
     },
-    ar: {
+    price: {
       type: Number
     }
   }
@@ -60,4 +65,4 @@ const ToSchema = new mongoose.Schema({
 //   next()
 // })
 
-module.exports = mongoose.model("TavakModel", ToSchema, "tavak");
+module.exports = mongoose.model("TavakModel", ToSchema, "lake");
