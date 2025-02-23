@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 const ToSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: [true, "Please add a name"],
-    unique: true,
-    trim: true,
-    maxlength: [50, "Name can not be more than 50 characters!"],
   },
   img: {
     type: String,
@@ -14,25 +10,15 @@ const ToSchema = new mongoose.Schema({
   location: {
     type: String
   },
-  typical_fish: {
-    type: String
+  coordinates:{
+    type: [Number]
   },
-  water_depth: {
+  description:{
+    type:String
+  },
+  typical_fish: {
     type: [String],
     required: true,
-    enum: [
-      'ponty',
-      'harcsa',
-      'csuka',
-      'keszeg',
-      'süllő',
-      'amur',
-      'compó',
-      'afrikai harcsa',
-      'busa',
-      'jász',
-      'paduc'
-    ]
   },
   water_depth: {
     type: Number
